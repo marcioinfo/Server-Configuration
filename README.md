@@ -10,7 +10,7 @@ This Project provides deep understanding of exactly what our web applications ar
 - Link to Project: [ItemCatalog](https://catalog.52.33.251.212.xip.io/catalog/showcatalog)
 - Static IP Address: 52.33.251.212
 - Accessible SSH port: 2200
-- [http Access:}(http://52.33.251.212/)
+- [http Access:](http://52.33.251.212/)
 
 ## Steps to Configure Linux server
 
