@@ -10,7 +10,9 @@ This Project provides deep understanding of exactly what our web applications ar
 - Link to Project: [ItemCatalog](https://catalog.52.33.251.212.xip.io/catalog/showcatalog)
 - Static IP Address: 52.33.251.212
 - Accessible SSH port: 2200
-- [http Access:](http://52.33.251.212/)
+- Check the [http Access:](http://52.33.251.212/) on port 80
+
+Note: Was necessary to provide https access in order to authentication/authorization work properly with Google Auth and facebook.
 
 ## Steps to Configure Linux server
 
