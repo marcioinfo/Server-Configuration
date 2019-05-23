@@ -27,45 +27,45 @@ SSH into the instance
  ### 3. Create New User
   
   Add User grader
-  - $ sudo adduser grader
+  - ```$ sudo adduser grader```
 Give Sudo Access to grader
-  - $ sudo nano /etc/sudoers.d/grader
+  - ```$ sudo nano /etc/sudoers.d/grader```
 Add following line to this file
  - grader ALL=(ALL:ALL) ALL
 To prevent the "sudo: unable to resolve host" error
 
 i. Edit the hosts file:
-- $ sudo nano /etc/hosts
+- ```$ sudo nano /etc/hosts```
 ii. Add the host:
 
-- $ 127.0.1.1 ip-XX-XX-XX-XX
+- ```$ 127.0.1.1 ip-XX-XX-XX-XX```
 
 ### 4. Configure the key-based authentication for grader user
 
 Generate an encryption key on your local machine
 i. Go to the directory where you want to save the Key, and run the following command:
-$ ssh-keygen -t rsa
+```$ ssh-keygen -t rsa```
 followed by the name of the key. By default, the keys will be stored in the ~/.ssh directory within your user's 
   home directory.
   ii. Place the public key on the server that we want to use:
   
-   $ ssh-copy-id grader@XX.XX.XX.XX -i (key_name.pub)
+   ```$ ssh-copy-id grader@XX.XX.XX.XX -i (key_name.pub)```
 iii. Log into remote as superuser user and open the following file:
 
- $ cat /.ssh/authorized_keys
+``` $ cat /.ssh/authorized_keys```
   and copy it's content using ```$ nano /home/grader/.ssh/authorized_keys```
 Now we can log into the remote VM through ssh with the following command:
 ``` $ ssh -i grader.rsa grade@XX.XX.XX.XX ```
-Run $ sudo nano /etc/ssh/sshd_config.
+Run ```$ sudo nano /etc/ssh/sshd_config.```
 Find the PasswordAuthentication line and edit it to no.
 Save the file.
-Run $ sudo service ssh restart to restart the service.
+Run ```$ sudo service ssh restart``` to restart the service.
 
 ### 6. Change the SSH port from 22 to 2200
 Find the Port line in the same file above, i.e /etc/ssh/sshd_config and edit it to 2200.
 Save the file.
-Run $ sudo service ssh restart to restart the service.
-   $ ssh-copy-id grader@XX.XX.XX.XX -i (key_name.pub)
+Run ```$ sudo service ssh ``` restart to restart the service.
+   ```$ ssh-copy-id grader@XX.XX.XX.XX -i (key_name.pub)```
    
 ###  7. Disable login for root user
 Find the PermitRootLogin line in the same file above, i.e /etc/ssh/sshd_config and edit it to no.
