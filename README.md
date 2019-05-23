@@ -27,11 +27,16 @@ SSH into the instance
  ### 3. Create New User
   
   Add User grader
+  
   - ```$ sudo adduser grader```
+  
 Give Sudo Access to grader
+
   - ```$ sudo nano /etc/sudoers.d/grader```
+  
 Add following line to this file
  - grader ALL=(ALL:ALL) ALL
+
 To prevent the "sudo: unable to resolve host" error
 
 i. Edit the hosts file:
@@ -72,6 +77,7 @@ Run ```$ sudo service ssh restart``` to restart the service.
 Find the Port line in the same file above, i.e /etc/ssh/sshd_config and edit it to 2200.
 Save the file.
 Run ```$ sudo service ssh ``` restart to restart the service.
+
    ```$ ssh-copy-id grader@XX.XX.XX.XX -i (key_name.pub)```
    
 ###  7. Disable login for root user
