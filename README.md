@@ -151,55 +151,10 @@ Change the branch of repo myCatalog to deployment:
  
  Make a Catalog.wsgi file to serve the application over the mod_wsgi. with content:
  ``` $ touch Catalog.wsgi && nano Catalog.wsgi``` 
- 
- ```import sys
-import logging
-logging.basicConfig(stream=sys.stderr)
-sys.path.insert(0, "/var/www/catalog/")
-
-from Catalog import app as application
-Inside Catalog.py database connection is now performed with:
-
-engine = create_engine('postgresql://catalog:password@localhost/catalog')
-Run the database_setup.py and dummyBooks.py once to setup database with dummy data:
-
- $ python database_setup.py
- $ python dummybooks.py```
 
  16. Edit the default Virtual File with following content:
 
-  $  sudo nano /etc/apache2/sites-available/000-default.conf
-  
-
-<VirtualHost *:80>
-
-        ServerName  catalog.52.33.251.212.xip.io
-        ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/html
-        ServerAlias catalogitem.com
-        Alias /static/ /var/www/catalog/catalog/static/
-         <Directory /var/www/catalog/catalog/static/>
-           Order allow,deny
-           Allow from all
-          </Directory>
-
-        ErrorLog ${APACHE_LOG_DIR}/error.log
-        CustomLog ${APACHE_LOG_DIR}/access.log combined
-
-        #Include conf-available/serve-cgi-bin.conf
-WSGIScriptAlias / /var/www/catalog/catalog/apps.wsgi
-RewriteEngine on
-RewriteCond %{SERVER_NAME} =catalog.52.33.251.212.xip.io [OR]
-RewriteCond %{SERVER_NAME} =catalogitem.com
-RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
-</VirtualHost>
-
-# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+  ```$  sudo nano /etc/apache2/sites-available/000-default.conf```
 
 17. Restart Apache to launch the app
- $ sudo service apache2 restart
-  
-  
-
-
-
+ ```$ sudo service apache2 restart```
