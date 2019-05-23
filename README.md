@@ -50,15 +50,22 @@ followed by the name of the key. By default, the keys will be stored in the ~/.s
   ii. Place the public key on the server that we want to use:
   
    ```$ ssh-copy-id grader@XX.XX.XX.XX -i (key_name.pub)```
+   
 iii. Log into remote as superuser user and open the following file:
 
 ``` $ cat /.ssh/authorized_keys```
+
   and copy it's content using ```$ nano /home/grader/.ssh/authorized_keys```
+  
 Now we can log into the remote VM through ssh with the following command:
+
 ``` $ ssh -i grader.rsa grade@XX.XX.XX.XX ```
+
 Run ```$ sudo nano /etc/ssh/sshd_config.```
+
 Find the PasswordAuthentication line and edit it to no.
 Save the file.
+
 Run ```$ sudo service ssh restart``` to restart the service.
 
 ### 6. Change the SSH port from 22 to 2200
