@@ -174,3 +174,10 @@ Change the branch of repo myCatalog to deployment:
 
 17. Restart Apache to launch the app
  ```$ sudo service apache2 restart```
+ 
+ ### References of third party resources used
+ 
+ - [Digital Ocean](https://www.digitalocean.com/)
+ - [Stack Overflow](https://stackoverflow.com/)
+ - [Ubuntu](https://help.ubuntu.com/16.04/ubuntu-help/index.html)
+ - [AWS Documentation](https://lightsail.aws.amazon.com/ls/docs/en_us/all)
